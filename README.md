@@ -79,8 +79,7 @@ node src/build.js
 ```
 
 
-> 线上地址: **https://rsnpro.netlify.app**
-> 默认登录: 用户名 **rsn** / 密码 **131420**
+> 线上地址: **https://rsnpro.netlify.app**  
 
 ## 🌐 部署
 
@@ -123,6 +122,7 @@ netlify deploy --prod
 ## 📄 许可
 
 MIT
+
 
 
 

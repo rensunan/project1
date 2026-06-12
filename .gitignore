@@ -1,2 +1,16 @@
-# Local Netlify folder
-.netlify
+﻿node_modules/
+.netlify/
+.env
+*.log
+temp_*.txt
+_patch_*.py
+_fix_*.py
+_restore_*.py
+_add_*.py
+_hide_*.py
+restore.json
+html.js
+public/index.html
+
+.wrangler/
+restore.json

@@ -17,8 +17,6 @@ CATEGORY_LIST.forEach(c => {
 });
 const API="/api";
 let AUTH_TOKEN=localStorage.getItem("auth_token")||"";
-let BLOB_CONFIG=null;
-async function getBlobConfig(){if(BLOB_CONFIG)return BLOB_CONFIG;try{const r=await apiFetch("/blob-config");if(r.ok){BLOB_CONFIG=await r.json()}return BLOB_CONFIG}catch(e){return null}}
 let currentCategory="all",allItems=[],currentDetailId=null;
 
 // ============================================================
@@ -220,7 +218,7 @@ function togglePw(btn){const i=btn.parentElement.querySelector("input");i.type=i
 function onCategoryChange(){const cat=document.getElementById("modal-category").value;const cfg=CATEGORIES[cat];const sd=document.getElementById("stickyFields");const fd=document.getElementById("fileUploadArea");if(cfg&&cfg.isSticky){sd.innerHTML=getStickyFieldsHtml(null);fd.innerHTML=""}else{sd.innerHTML='<div class="form-group"><label>内容</label><textarea id="modal-content" placeholder="输入内容..."></textarea></div>';fd.innerHTML=getFileUploadHtml(null)}}
 function getFileUploadHtml(item){const hasFile=item&&item.fileData;return '<div class="form-group"><label>文件附件</label>'+(hasFile?'<div class="file-preview"><span>📄</span><span class="name">'+esc(item.fileName)+'</span><span class="size">'+formatSize(item.fileSize||0)+'</span></div>':'<div class="file-drop" onclick="document.getElementById(\'fileInput\').click()" id="fileDrop"><div class="icon">📁</div><p>点击或拖拽文件到此处上传</p></div>')+'<input type="file" id="fileInput" style="display:none" onchange="handleFileSelect(event)"></div>';}
 let selectedFile=null;
-function handleFileSelect(e){const file=e.target.files[0];if(!file)return;if(file.size>20*1024*1024){toast("文件不能超过5MB","error");return}selectedFile=file;const reader=new FileReader();reader.onload=function(ev){const drop=document.getElementById("fileDrop");if(drop){const isImg=file.type.startsWith("image/");drop.innerHTML='<div class="file-preview">'+(isImg?'<img src="'+ev.target.result+'">':'<span>'+getFileIcon(file.type)+'</span>')+'<span class="name">'+esc(file.name)+'</span><span class="size">'+formatSize(file.size)+'</span><span class="remove" onclick="removeFile()">✕</span></div>'}};reader.readAsDataURL(file)}
+function handleFileSelect(e){const file=e.target.files[0];if(!file)return;if(file.size>50*1024*1024){toast("文件不能超过50MB","error");return}selectedFile=file;const reader=new FileReader();reader.onload=function(ev){const drop=document.getElementById("fileDrop");if(drop){const isImg=file.type.startsWith("image/");drop.innerHTML='<div class="file-preview">'+(isImg?'<img src="'+ev.target.result+'">':'<span>'+getFileIcon(file.type)+'</span>')+'<span class="name">'+esc(file.name)+'</span><span class="size">'+formatSize(file.size)+'</span><span class="remove" onclick="removeFile()">✕</span></div>'}};reader.readAsDataURL(file)}
 function getFileIcon(t){if(!t)return"📄";if(t.startsWith("image/"))return"🖼️";if(t.startsWith("video/"))return"🎬";if(t.startsWith("audio/"))return"🎵";if(t.startsWith("text/"))return"📝";if(t.includes("pdf"))return"📕";if(t.includes("zip")||t.includes("rar")||t.includes("gz"))return"📦";if(t.includes("word")||t.includes("document"))return"📄";if(t.includes("excel")||t.includes("sheet"))return"📊";return"📁"}
 function removeFile(){selectedFile=null;document.getElementById("uploadProgress").style.display="none";const drop=document.getElementById("fileDrop");if(drop)drop.innerHTML='<div class="icon">📁</div><p>点击或拖拽文件到此处上传</p>'}
 document.addEventListener("dragover",e=>{e.preventDefault();const d=document.getElementById("fileDrop");if(d)d.classList.add("drag")});
@@ -230,25 +228,6 @@ document.addEventListener("drop",e=>{e.preventDefault();const d=document.getElem
 // ============================================================
 // 📤 提交表单 - 非阻塞上传, 直接插入列表
 // ============================================================
-
-// Direct upload to Netlify Blobs (bypasses 6MB function limit)
-async function uploadToBlobs(file, onProgress){
-  const cfg=await getBlobConfig();
-  if(!cfg||!cfg.token){throw new Error("无法获取上传配置")}
-  const key="file:"+Date.now()+"_"+Math.random().toString(36).slice(2,8);
-  const url=(cfg.apiURL||"https://api.netlify.com")+"/api/v1/blobs/"+cfg.siteID+"/personal-cloud/"+encodeURIComponent(key);
-  return new Promise((resolve,reject)=>{
-    const xhr=new XMLHttpRequest();
-    xhr.open("PUT",url);
-    xhr.setRequestHeader("Authorization","Bearer "+cfg.token);
-    xhr.setRequestHeader("Content-Type","application/octet-stream");
-    xhr.upload.onprogress=e=>{if(e.lengthComputable&&onProgress){onProgress(Math.round(e.loaded/e.total*100))}};
-    xhr.onload=()=>{if(xhr.status>=200&&xhr.status<300){resolve({key,fileName:file.name,fileType:file.type,fileSize:file.size})}else{try{reject(new Error(JSON.parse(xhr.responseText).error||"上传失败"))}catch(e){reject(new Error("上传失败: "+xhr.status))}}};
-    xhr.onerror=()=>reject(new Error("网络错误"));
-    xhr.send(file);
-  });
-}
-
 async function submitForm(mode,id){
   const title=document.getElementById("modal-title").value.trim();if(!title){toast("请输入标题","error");return}
   const category=document.getElementById("modal-category").value;const cfg=CATEGORIES[category];const isSticky=cfg&&cfg.isSticky;
@@ -260,8 +239,7 @@ async function submitForm(mode,id){
   let res;
   try{
     if(isSticky){const body={title,content:stickyData,category};const u=mode==="create"?"/items":"/items/"+id;const m=mode==="create"?"POST":"PUT";res=await apiFetch(u,{method:m,headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})}
-    else if(uploadFile){try{const blobResult=await uploadToBlobs(uploadFile,pct=>{const el=document.getElementById(toastId);if(el)el.innerHTML='<div class="toast-spinner"></div> 上传中... '+pct+'%'});const body={title,content:fileContent,category,fileKey:blobResult.key,fileName:blobResult.fileName,fileType:blobResult.fileType,fileSize:blobResult.fileSize};const u=mode==="create"?"/items":"/items/"+id;const m=mode==="create"?"POST":"PUT";res=await apiFetch(u,{method:m,headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})}catch(directErr){const form=new FormData();form.append("title",title);form.append("content",fileContent);form.append("category",category);form.append("file",uploadFile,uploadFile.name);const u=mode==="create"?"/items":"/items/"+id;const m=mode==="create"?"POST":"PUT";res=await uploadWithProgress(u,m,form)}}
-
+    else if(uploadFile){const form=new FormData();form.append("title",title);form.append("content",fileContent);form.append("category",category);form.append("file",uploadFile,uploadFile.name);const u=mode==="create"?"/items":"/items/"+id;const m=mode==="create"?"POST":"PUT";res=await uploadWithProgress(u,m,form)}
     else{let content=fileContent;const body={title,content,category};if(mode==="edit"){const ex=allItems.find(i=>i.id===id);if(ex){body.fileData=ex.fileData||null;body.fileName=ex.fileName;body.fileType=ex.fileType;body.fileSize=ex.fileSize}}const u=mode==="create"?"/items":"/items/"+id;const m=mode==="create"?"POST":"PUT";res=await apiFetch(u,{method:m,headers:{"Content-Type":"application/json"},body:JSON.stringify(body)})}
     if(!res.ok){const e=await res.json();throw new Error(e.error||"操作失败")}
     const saved=await res.json();removeToast(toastId);
