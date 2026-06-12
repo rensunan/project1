@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>☁️ 个人云数据存储</title>
+<style>__CSS__</style>
+</head>
+<body>
+<!-- 登录页面 -->
+<div id="loginScreen" class="login-screen">
+  <div class="login-card">
+    <div class="login-logo">☁️</div>
+    <h1>个人云存储</h1>
+    <p class="login-sub">安全登录以访问你的数据</p>
+    <div class="form-group">
+      <label>用户名</label>
+      <input type="text" id="loginUser" placeholder="请输入用户名" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>密码</label>
+      <div class="pw-field">
+        <input type="password" id="loginPass" placeholder="请输入密码" autocomplete="current-password">
+        <button class="pw-toggle" onclick="toggleLoginPw()">👁️</button>
+      </div>
+    </div>
+    <div class="login-error" id="loginError"></div>
+    <button class="btn btn-primary" onclick="doLogin()" style="width:100%;justify-content:center;padding:14px">🔐 登录</button>
+  </div>
+</div>
+
+<!-- 主应用（初始隐藏） -->
+<div class="app" id="mainApp" style="display:none">
+  <button class="menu-btn" onclick="toggleSidebar()">☰</button>
+  <aside class="sidebar" id="sidebar">
+    <!-- 侧边栏由 JS 动态生成 -->
+  </aside>
+  <main class="main" id="main">
+    <div class="header">
+      <h1 class="header-title" id="pageTitle">📋 全部项目</h1>
+      <div class="header-actions">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input type="text" placeholder="搜索..." id="searchInput" oninput="filterItems()">
+        </div>
+        <button class="btn btn-primary" onclick="openCreateModal()">＋ 新建</button>
+        <button class="btn btn-secondary" onclick="openSettings()" title="设置">⚙️</button>
+      </div>
+    </div>
+    <div class="stats-bar" id="statsBar" style="display:none">
+      <div class="stats-header"><h3>📊 存储占用</h3><span class="stats-total" id="statsTotal"></span></div>
+      <div class="stats-progress" id="statsProgress"></div>
+      <div class="stats-legend" id="statsLegend"></div>
+    </div>
+    <div id="contentArea">
+      <div class="loading"><div class="spinner"></div></div>
+    </div>
+  </main>
+</div>
+
+<div id="modalContainer"></div>
+<div class="toast-container" id="toastContainer"></div>
+<script>__JS__</script>
+</body>
+</html>

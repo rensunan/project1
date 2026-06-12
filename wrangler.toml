@@ -1,0 +1,10 @@
+name = "personal-cloud"
+main = "src/worker.js"
+compatibility_date = "2025-06-11"
+
+kv_namespaces = [
+  { binding = "PERSONAL_CLOUD_KV", id = "local-dev-kv", preview_id = "local-dev-kv" }
+]
+
+[dev]
+port = 8787

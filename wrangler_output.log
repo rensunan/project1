@@ -1,0 +1,237 @@
+
+ ⛅️ wrangler 4.99.0
+───────────────────
+Your Worker has access to the following bindings:
+Binding                                   Resource          Mode
+env.PERSONAL_CLOUD_KV (local-dev-kv)      KV Namespace      local
+
+⎔ Starting local server...
+[wrangler:info] Ready on http://127.0.0.1:8787
+[wrangler:info] POST /api/auth/login 200 OK (430ms)
+[wrangler:info] POST /api/items 201 Created (6ms)
+[wrangler:info] GET /api/items/mq99w97opbn3uh28 200 OK (2ms)
+[wrangler:info] PUT /api/items/mq99w97opbn3uh28 200 OK (5ms)
+[wrangler:info] DELETE /api/items/mq99w97opbn3uh28 200 OK (4ms)
+[wrangler:info] GET /api/items/mq99w97opbn3uh28 404 Not Found (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET / 200 OK (4ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET / 200 OK (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (429ms)
+[wrangler:info] POST /api/auth/login 200 OK (423ms)
+[wrangler:info] POST /api/items 201 Created (6ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] DELETE /api/items/mq9a9o65hwd7ulcm 200 OK (5ms)
+[wrangler:info] POST /api/auth/login 200 OK (425ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (427ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET / 200 OK (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (68ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (1ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET / 200 OK (3ms)
+[wrangler:info] GET / 200 OK (2ms)
+[wrangler:info] POST /api/auth/login 200 OK (72ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET / 200 OK (6ms)
+[wrangler:info] GET / 200 OK (5ms)
+[wrangler:info] POST /api/auth/login 200 OK (73ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (430ms)
+[wrangler:info] POST /api/items 201 Created (7ms)
+[wrangler:info] GET /api/items/mq9bgbv6ffrsa9d8/download 200 OK (2ms)
+[wrangler:info] DELETE /api/items/mq9bgbv6ffrsa9d8 200 OK (5ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (429ms)
+[wrangler:info] POST /api/items 201 Created (5ms)
+[wrangler:info] GET /api/items/mq9bjf2euci2d231/download 404 Not Found (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (431ms)
+[wrangler:info] POST /api/items 201 Created (8ms)
+[wrangler:info] GET /api/items/mq9bjyd8vb1y2unu/download 200 OK (3ms)
+[wrangler:info] GET /api/items/mq9bjyd8vb1y2unu/download 200 OK (2ms)
+[wrangler:info] DELETE /api/items/mq9bjyd8vb1y2unu 200 OK (4ms)
+[wrangler:info] GET / 200 OK (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (70ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (433ms)
+[wrangler:info] POST /api/items 201 Created (5ms)
+[wrangler:info] GET /api/items 200 OK (5ms)
+[wrangler:info] GET /api/items/mq9c2l397rb8v5sw 200 OK (4ms)
+[wrangler:info] DELETE /api/items/mq9c2l397rb8v5sw 200 OK (5ms)
+[wrangler:info] GET /api/items 200 OK (6ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] POST /api/items 201 Created (10ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (1ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] GET /api/items/mq9ca1v5qibid3t9/download 200 OK (7ms)
+[wrangler:info] GET /api/items 200 OK (5ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/items 200 OK (1ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] POST /api/items 201 Created (12ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (4ms)
+[wrangler:info] GET /api/items/mq9camxwp6ckhzqh/download 200 OK (7ms)
+[wrangler:info] GET /api/items/mq9camxwp6ckhzqh/download 200 OK (4ms)
+[wrangler:info] GET /.well-known/appspecific/com.chrome.devtools.json 404 Not Found (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET /api/items 200 OK (11ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (4ms)
+[wrangler:info] GET /api/items/mq9ca1v5qibid3t9/download 200 OK (5ms)
+[wrangler:info] GET / 200 OK (3ms)
+[wrangler:info] POST /api/auth/login 200 OK (124ms)
+[wrangler:info] GET /api/items 200 OK (8ms)
+[wrangler:info] GET /api/items 200 OK (8ms)
+[wrangler:info] GET /api/items 200 OK (5ms)
+[wrangler:info] GET /api/stats 200 OK (10ms)
+[wrangler:info] GET /api/items 200 OK (4ms)
+[wrangler:info] GET /api/stats 200 OK (8ms)
+[wrangler:info] GET /api/items/mq9camxwp6ckhzqh 200 OK (4ms)
+[wrangler:info] GET /api/items/mq9camxwp6ckhzqh/download 200 OK (5ms)
+[wrangler:info] GET /api/items 200 OK (5ms)
+[wrangler:info] GET /api/items 200 OK (4ms)
+[wrangler:info] GET /api/stats 200 OK (6ms)
+[wrangler:info] GET /api/items/mq9ca1v5qibid3t9/download 200 OK (5ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET /api/items 200 OK (11ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] GET /api/items 200 OK (7ms)
+[wrangler:info] GET /api/items 200 OK (2ms)
+[wrangler:info] GET /api/stats 200 OK (4ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (438ms)
+[wrangler:info] POST /api/items 201 Created (7ms)
+[wrangler:info] HEAD /api/items/mq9cocxqz18kxyt5/download 404 Not Found (1ms)
+[wrangler:info] DELETE /api/items/mq9cocxqz18kxyt5 200 OK (7ms)
+[wrangler:info] POST /api/auth/login 200 OK (429ms)
+[wrangler:info] POST /api/items 201 Created (6ms)
+[wrangler:info] GET /api/items/mq9conq6szuaywjl/download 200 OK (2ms)
+[wrangler:info] DELETE /api/items/mq9conq6szuaywjl 200 OK (4ms)
+[wrangler:info] POST /api/auth/login 200 OK (433ms)
+[wrangler:info] POST /api/auth/login 200 OK (432ms)
+[wrangler:info] GET /api/items 200 OK (4ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+[wrangler:info] POST /api/items 201 Created (4ms)
+[wrangler:info] GET /api/items/mq9crojoqkl6jhon 200 OK (3ms)
+[wrangler:info] DELETE /api/items/mq9crojoqkl6jhon 200 OK (4ms)
+[wrangler:info] GET /api/items 200 OK (8ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (3ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (430ms)
+[wrangler:info] GET /api/items 200 OK (4ms)
+[wrangler:info] GET /api/stats 200 OK (4ms)
+[wrangler:info] GET /api/auth/check 200 OK (2ms)
+[wrangler:info] POST /api/items 201 Created (4ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (436ms)
+[wrangler:info] POST /api/auth/change 401 Unauthorized (64ms)
+[wrangler:info] POST /api/auth/change 200 OK (130ms)
+[wrangler:info] POST /api/auth/login 200 OK (430ms)
+[wrangler:info] POST /api/items 201 Created (5ms)
+[wrangler:info] DELETE /api/items/mq9czrj953onp54t 200 OK (5ms)
+[wrangler:info] POST /api/auth/login 200 OK (436ms)
+[wrangler:info] POST /api/items 201 Created (4ms)
+[wrangler:info] DELETE /api/items/mq9d2by68y9rzsxp 200 OK (4ms)
+[wrangler:info] POST /api/items 201 Created (4ms)
+[wrangler:info] DELETE /api/items/mq9d2byih6itql5c 200 OK (3ms)
+[wrangler:info] POST /api/items 201 Created (3ms)
+[wrangler:info] DELETE /api/items/mq9d2byqsvtgn4pp 200 OK (4ms)
+[wrangler:info] POST /api/items 201 Created (4ms)
+[wrangler:info] DELETE /api/items/mq9d2byyst8yso6l 200 OK (3ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (432ms)
+[wrangler:info] POST /api/items 201 Created (5ms)
+[wrangler:info] GET /api/items/mq9d5ma0aii2pmnu/download 404 Not Found (2ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] GET /api/items 200 OK (11ms)
+[wrangler:info] GET /api/items 200 OK (3ms)
+[wrangler:info] GET /api/stats 200 OK (6ms)
+[wrangler:info] GET /api/items/mq9ca1v5qibid3t9/download 200 OK (3ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+[wrangler:info] POST /api/auth/login 200 OK (432ms)
+[wrangler:info] POST /api/items 201 Created (7ms)
+[wrangler:info] GET /api/items/mq9hdkunsn22q0z8/download 200 OK (3ms)
+[wrangler:info] DELETE /api/items/mq9hdkunsn22q0z8 200 OK (5ms)
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
+⎔ Reloading local server...
+⎔ Local server updated and ready
